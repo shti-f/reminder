@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353299E020D3A988005DD5C9 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353299DF20D3A988005DD5C9 /* TaskTableViewCell.swift */; };
 		35BBDADE20D0C39C00B198C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBDADD20D0C39C00B198C2 /* AppDelegate.swift */; };
 		35BBDAE020D0C39C00B198C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBDADF20D0C39C00B198C2 /* ViewController.swift */; };
 		35BBDAE320D0C39C00B198C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BBDAE120D0C39C00B198C2 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		353299DF20D3A988005DD5C9 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		35BBDADA20D0C39C00B198C2 /* reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BBDADD20D0C39C00B198C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BBDADF20D0C39C00B198C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				35BBDADD20D0C39C00B198C2 /* AppDelegate.swift */,
 				35BBDADF20D0C39C00B198C2 /* ViewController.swift */,
 				35BBDAE120D0C39C00B198C2 /* Main.storyboard */,
+				353299DF20D3A988005DD5C9 /* TaskTableViewCell.swift */,
 				35F3ED0D20D36E9400E9E83F /* AddTaskViewController.swift */,
 				35BBDAE420D0C39D00B198C2 /* Assets.xcassets */,
 				35BBDAE620D0C39D00B198C2 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				35BBDAE020D0C39C00B198C2 /* ViewController.swift in Sources */,
 				35F3ED0E20D36E9400E9E83F /* AddTaskViewController.swift in Sources */,
+				353299E020D3A988005DD5C9 /* TaskTableViewCell.swift in Sources */,
 				35BBDADE20D0C39C00B198C2 /* AppDelegate.swift in Sources */,
 				35F3ED0C20D36A0800E9E83F /* reminder.xcdatamodeld in Sources */,
 			);

@@ -108,12 +108,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = taskTableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.reuseIdentifier, for: indexPath) as? TaskTableViewCell else {
+            fatalError("Unexpected Index Path")
+        }
         
         let sectionData = tasksToShow[taskCategories[indexPath.section]]
         let cellData = sectionData?[indexPath.row]
         
-        cell.textLabel?.text = "\(cellData!)"
+        cell.taskLabel.text = "\(cellData!)"
         
         return cell
     }

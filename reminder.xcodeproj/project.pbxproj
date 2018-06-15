@@ -14,6 +14,8 @@
 		35BBDAE820D0C39D00B198C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BBDAE620D0C39D00B198C2 /* LaunchScreen.storyboard */; };
 		35BBDAF320D0C39D00B198C2 /* reminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBDAF220D0C39D00B198C2 /* reminderTests.swift */; };
 		35BBDAFE20D0C39D00B198C2 /* reminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBDAFD20D0C39D00B198C2 /* reminderUITests.swift */; };
+		35F3ED0C20D36A0800E9E83F /* reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35F3ED0A20D36A0800E9E83F /* reminder.xcdatamodeld */; };
+		35F3ED0E20D36E9400E9E83F /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F3ED0D20D36E9400E9E83F /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		35BBDAF920D0C39D00B198C2 /* reminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BBDAFD20D0C39D00B198C2 /* reminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminderUITests.swift; sourceTree = "<group>"; };
 		35BBDAFF20D0C39D00B198C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35F3ED0B20D36A0800E9E83F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		35F3ED0D20D36E9400E9E83F /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +104,11 @@
 				35BBDADD20D0C39C00B198C2 /* AppDelegate.swift */,
 				35BBDADF20D0C39C00B198C2 /* ViewController.swift */,
 				35BBDAE120D0C39C00B198C2 /* Main.storyboard */,
+				35F3ED0D20D36E9400E9E83F /* AddTaskViewController.swift */,
 				35BBDAE420D0C39D00B198C2 /* Assets.xcassets */,
 				35BBDAE620D0C39D00B198C2 /* LaunchScreen.storyboard */,
 				35BBDAE920D0C39D00B198C2 /* Info.plist */,
+				35F3ED0A20D36A0800E9E83F /* reminder.xcdatamodeld */,
 			);
 			path = reminder;
 			sourceTree = "<group>";
@@ -257,7 +263,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				35BBDAE020D0C39C00B198C2 /* ViewController.swift in Sources */,
+				35F3ED0E20D36E9400E9E83F /* AddTaskViewController.swift in Sources */,
 				35BBDADE20D0C39C00B198C2 /* AppDelegate.swift in Sources */,
+				35F3ED0C20D36A0800E9E83F /* reminder.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		35F3ED0A20D36A0800E9E83F /* reminder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				35F3ED0B20D36A0800E9E83F /* Model.xcdatamodel */,
+			);
+			currentVersion = 35F3ED0B20D36A0800E9E83F /* Model.xcdatamodel */;
+			path = reminder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 35BBDAD220D0C39B00B198C2 /* Project object */;
 }

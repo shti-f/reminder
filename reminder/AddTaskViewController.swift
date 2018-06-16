@@ -12,7 +12,10 @@ class AddTaskViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var TaskTextField: UITextField!
-    @IBOutlet weak var CategorySegmentedControll: UISegmentedControl!
+    @IBOutlet weak var CategorySegmentedControl: UISegmentedControl!
+    
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var task: Task?
     
     // MARK: -
     var taskCategory = "ToDo"
@@ -20,8 +23,21 @@ class AddTaskViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // taskに値が代入されていたら、textFieldとsegmentedControlにそれを表示
+        if let task = task {
+            TaskTextField.text = task.name
+            taskCategory = task.category!
+            switch task.category! {
+                case "ToDo":
+                    CategorySegmentedControl.selectedSegmentIndex = 0
+                case "Shopping":
+                    CategorySegmentedControl.selectedSegmentIndex = 1
+                case "Assignment":
+                    CategorySegmentedControl.selectedSegmentIndex = 2
+                default:
+                    CategorySegmentedControl.selectedSegmentIndex = 0
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,27 +47,24 @@ class AddTaskViewController: UIViewController {
     
     // MARK: - Actions of Buttons
     @IBAction func addButtonTapped(_ sender: Any) {
-        // TextFieldに何も入力されていない場合は何もせずに1つ目のビューへ戻ります。
         let taskName = TaskTextField.text
         if taskName == "" {
-            print("receive black task")
             dismiss(animated: true, completion: nil)
             return
         }
         
-        // context(データベースを扱うのに必要)を定義。
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        // 受け取った値が空であれば、新しいTask型オブジェクトを作成する
+        if task == nil {
+            task = Task(context: context)
+        }
         
-        // taskにTask(データベースのエンティティです)型オブジェクトを代入します。
-        let task = Task(context: context)
+        // 受け取ったオブジェクト、または、先ほど新しく作成したオブジェクトそのタスクのnameとcategoryに入力データを代入する
+        if let task = task {
+            task.name = taskName
+            task.category = taskCategory
+        }
         
-        // Task型データのname、categoryプロパティに入力、選択したデータを代入します。
-        task.name = taskName
-        task.category = taskCategory
-        
-        print("receive task", task)
-        
-        // 上で作成したデータをデータベースに保存します。
+        // 変更内容を保存する
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismiss(animated: true, completion: nil)

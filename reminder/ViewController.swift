@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Properties
     @IBOutlet weak var taskTableView: UITableView!
     
+    private let segueEditTaskViewController = "SegueEditTaskViewController"
+    
     // MARK: - Properties for table view
     var tasks:[Task] = []
     var tasksToShow:[String:[String]] = ["ToDo":[], "Shopping":[], "Assignment":[]]
@@ -120,6 +122,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let title = UILabel()
+        
+        title.text = taskCategories[section]
+        
+        title.textAlignment = NSTextAlignment.center
+        title.backgroundColor = UIColor(red: 255/255, green: 215/255, blue: 0/255, alpha: 1.0)
+        title.textColor = .brown
+        title.font = UIFont(name: "Helvetica Neue", size: 20.0)
+        
+        return title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationViewController = segue.destination as? AddTaskViewController else { return }
+        
+        // contextをAddTaskViewController.swiftのcontextへ渡す
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        destinationViewController.context = context
+        if let indexPath = taskTableView.indexPathForSelectedRow, segue.identifier == segueEditTaskViewController {
+            // 編集したいデータのcategoryとnameを取得
+            let editedCategory = taskCategories[indexPath.section]
+            let editedName = tasksToShow[editedCategory]?[indexPath.row]
+            // 先ほど取得したcategoryとnameに合致するデータのみをfetchするようにfetchRequestを作成
+            let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "name = %@ and category = %@", editedName!, editedCategory)
+            // そのfetchRequestを満たすデータをfetchしてtask(配列だが要素を1種類しか持たないはず）に代入し、それを渡す
+            do {
+                let task = try context.fetch(fetchRequest)
+                destinationViewController.task = task[0]
+            } catch {
+                print("Fetching Failed.")
+            }
+        }
+    }
 
     // MARK: -
     override func didReceiveMemoryWarning() {

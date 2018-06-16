@@ -128,8 +128,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         title.text = taskCategories[section]
         
         title.textAlignment = NSTextAlignment.center
-        title.backgroundColor = UIColor(red: 255/255, green: 215/255, blue: 0/255, alpha: 1.0)
-        title.textColor = .brown
+        title.backgroundColor = UIColor(red: 100/255, green: 200/255, blue: 250/255, alpha: 1.0)
+        title.textColor = .white
         title.font = UIFont(name: "Helvetica Neue", size: 20.0)
         
         return title
